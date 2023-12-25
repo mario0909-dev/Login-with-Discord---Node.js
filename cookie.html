@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOADING</title>
+</head>
+
+<body>
+    ...
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    window.onload = () => {
+        const fragment = new URLSearchParams(window.location.hash.slice(1));
+        const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
+
+        if (accessToken && !document.cookie.includes('accessToken') && !document.cookie.includes('tokenType')) {
+            const expirationDate = new Date();
+            expirationDate.setDate(expirationDate.getDate() + 7); // Set expiration to 1 week from now
+
+            document.cookie = `accessToken=${accessToken}; expires=${expirationDate.toUTCString()}; path=/`;
+            document.cookie = `tokenType=${tokenType}; expires=${expirationDate.toUTCString()}; path=/`;
+        }
+
+        window.location.href = '/';
+
+
+    };
+</script>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with discord</title>
+    <script src="https://kit.fontawesome.com/af31564f65.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: aliceblue;
+            font-family: sans-serif;
+        }
+
+        h2 {
+            width: 100px;
+            font-size: 16px;
+            text-align: center;
+            padding: 10px;
+            color: aliceblue;
+            background-color: #738be9;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        h2:hover {
+            background-color: #4752c4;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DISCORD Login with Node.js</h1>
+    <h2 id="login">
+        <a
+            href="https://discord.com/api/oauth2/authorize?client_id=1180499660285165638&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A53134%2Fauth%2Fdiscord&scope=identify">Login
+            <i class="fa-brands fa-discord"></i></a>
+    </h2>
+    <p>Discord app configured to redirect to discord auth and send back a token</p>
+
+    <p>Server listener configured to route the URL to the file we want or whatever we want</p>
+    <p>In this example, the server loads the Cookie file, which creates a cookie with the AccessToken and TokenType</p>
+    <p>so we can check if the user is logged in or not</p>
+    <p>then we redirect to another file in this example, to "/" which is the index</p>
+</body>
+
+</html>
